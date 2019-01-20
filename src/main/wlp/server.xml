@@ -1,0 +1,20 @@
+<server description="Demo server">
+
+    <!--
+    Server features for embeded build
+    TODO exclude from war
+
+    @author Andrew
+
+    -->
+
+    <!-- Enable features -->
+    <featureManager>
+        <feature>localConnector-1.0</feature>
+    	<feature>beanValidation-1.1</feature>
+		<feature>cdi-1.2</feature>
+		<feature>jdbc-4.1</feature>
+		<feature>jaxrs-2.0</feature>
+	</featureManager>
+
+</server>

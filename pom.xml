@@ -1,0 +1,196 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.github.awferg</groupId>
+	<artifactId>sample-rest</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+	<name>Sample Rest Service</name>
+	<description>
+    <![CDATA[
+    Sample service that takes the data for a user, encrypts it and adds to database.
+
+    @author Andrew
+
+    ]]>
+    </description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<liberty-maven-plugin.version>2.6.3</liberty-maven-plugin.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.2.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jdbi</groupId>
+			<artifactId>jdbi3-core</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jdbi</groupId>
+			<artifactId>jdbi3-sqlobject</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jdbi</groupId>
+			<artifactId>jdbi3-sqlite</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.xerial</groupId>
+			<artifactId>sqlite-jdbc</artifactId>
+		</dependency>
+
+		<dependency>
+		   <groupId>com.mikesamuel</groupId>
+		   <artifactId>json-sanitizer</artifactId>
+		   <version>1.2.0</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>javax</groupId>
+		    <artifactId>javaee-api</artifactId>
+		    <version>7.0</version>
+		    <scope>provided</scope>
+		</dependency>
+
+		<!-- allows testing of javax validator (not ws version but included for
+			simplicity) -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<version>5.2.4.Final</version>
+			<artifactId>hibernate-validator</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.jdbi</groupId>
+				<artifactId>jdbi3-bom</artifactId>
+				<type>pom</type>
+				<version>3.5.1</version>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<profiles>
+		<profile>
+			<id>embed-liberty</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>net.wasdev.wlp.maven.plugins</groupId>
+						<artifactId>liberty-maven-plugin</artifactId>
+						<version>${liberty-maven-plugin.version}</version>
+						<configuration>
+							<assemblyArtifact>
+								<groupId>io.openliberty</groupId>
+								<artifactId>openliberty-runtime</artifactId>
+								<version>18.0.0.4</version>
+								<type>zip</type>
+							</assemblyArtifact>
+							<configFile>src/main/wlp/server.xml</configFile>
+							<packageFile>target/sample-rest-liberty.jar</packageFile>
+							<include>runnable</include>
+							<looseApplication>false</looseApplication>
+							<installAppPackages>project</installAppPackages>
+							<serverName>rest-app-server</serverName>
+							<features>
+								<feature>localConnector-1.0</feature>
+								<feature>beanValidation-1.1</feature>
+								<feature>cdi-1.2</feature>
+								<feature>jdbc-4.1</feature>
+								<feature>jaxrs-2.0</feature>
+							</features>
+						</configuration>
+						<executions>
+							<execution>
+								<id>install-liberty</id>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>install-server</goal>
+									<goal>create-server</goal>
+									<goal>install-feature</goal>
+								</goals>
+							</execution>
+							<execution>
+								<id>embed-liberty</id>
+								<phase>package</phase>
+								<goals>
+									<goal>install-apps</goal>
+									<goal>package-server</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+	<repositories>
+		<!-- no longer required as using open liberty
+		<repository>
+			<id>ws</id>
+			<name>websphere</name>
+			<url>http://public.dhe.ibm.com/ibmdl/export/pub/software/websphere/wasdev/maven/repository/</url>
+		</repository>
+		-->
+	</repositories>
+
+	<build>
+		<finalName>${project.artifactId}</finalName>
+
+		<plugins>
+			<!--  todo add maven enforcer plugin as doesn't build jar with maven 3.2.2 -->
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.0</version>
+				<configuration>
+					<fork>true</fork>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.0.0</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+						</manifest>
+						<manifestSections>
+							<manifestSection>
+								<name>Build Details</name>
+								<manifestEntries>
+									<Built-At>${maven.build.timestamp}</Built-At>
+								</manifestEntries>
+							</manifestSection>
+						</manifestSections>
+					</archive>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
