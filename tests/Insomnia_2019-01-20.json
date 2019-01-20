@@ -1,0 +1,356 @@
+{
+	"_type": "export",
+	"__export_format": 3,
+	"__export_date": "2019-01-20T18:53:01.137Z",
+	"__export_source": "insomnia.desktop.app:v6.3.2",
+	"resources": [
+		{
+			"_id": "wrk_339d2c6694cf4db498d090ec5aecfb24",
+			"created": 1513515958318,
+			"description": "",
+			"modified": 1513515958318,
+			"name": "Insomnia",
+			"parentId": null,
+			"_type": "workspace"
+		},
+		{
+			"_id": "env_5e12d3bcd350453d86c6dfa4da5b1193",
+			"color": null,
+			"created": 1513515958378,
+			"data": {},
+			"isPrivate": false,
+			"metaSortKey": 1548010381181,
+			"modified": 1513515958378,
+			"name": "New Environment",
+			"parentId": "wrk_339d2c6694cf4db498d090ec5aecfb24",
+			"_type": "environment"
+		},
+		{
+			"_id": "jar_c532c8eaa15b45229342c3e610abccce",
+			"cookies": [],
+			"created": 1513515958481,
+			"modified": 1513515958481,
+			"name": "Default Jar",
+			"parentId": "wrk_339d2c6694cf4db498d090ec5aecfb24",
+			"_type": "cookie_jar"
+		},
+		{
+			"_id": "fld_4dbd4b714f7e402aaf897feb57ecb0c2",
+			"created": 1547996477295,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1513516038559,
+			"modified": 1547996714764,
+			"name": "Invalid User Tests",
+			"parentId": "wrk_339d2c6694cf4db498d090ec5aecfb24",
+			"_type": "request_group"
+		},
+		{
+			"_id": "req_9a8ccbb644be4bc3820e8010927be055",
+			"authentication": {},
+			"body": {},
+			"created": 1513516038709,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1513516038709,
+			"method": "GET",
+			"modified": 1547984872882,
+			"name": "all users",
+			"parameters": [],
+			"parentId": "wrk_339d2c6694cf4db498d090ec5aecfb24",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:9080/sample-rest/api/users",
+			"_type": "request"
+		},
+		{
+			"_id": "req_8f91e8042bb54e39b7cf820a19932a0b",
+			"authentication": {},
+			"body": {},
+			"created": 1547502977767,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1547502977767,
+			"method": "GET",
+			"modified": 1548001656966,
+			"name": "get user 1",
+			"parameters": [],
+			"parentId": "wrk_339d2c6694cf4db498d090ec5aecfb24",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:9080/sample-rest/api/users/1",
+			"_type": "request"
+		},
+		{
+			"_id": "req_ae307ffb42724e92a3c0412b27761770",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"firstName\" : \"ABCDEFG\",\n\t\"lastName\" : \"HIJKLMNOP\",\n\t\"email\" : \"XXX@YYY.com\",\n\t\"age\" : 21\n}"
+			},
+			"created": 1547503105867,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_b460de590c3e4fafba5d561a9a293b24",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1547503105867,
+			"method": "POST",
+			"modified": 1548007881692,
+			"name": "add user",
+			"parameters": [],
+			"parentId": "wrk_339d2c6694cf4db498d090ec5aecfb24",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:9080/sample-rest/api/users",
+			"_type": "request"
+		},
+		{
+			"_id": "req_e74cc1482b684fdb89f605d25670d400",
+			"authentication": {},
+			"body": {},
+			"created": 1547980542385,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1513516038659,
+			"method": "GET",
+			"modified": 1547984986717,
+			"name": "all users (encrypted)",
+			"parameters": [],
+			"parentId": "wrk_339d2c6694cf4db498d090ec5aecfb24",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:9080/sample-rest/api/users?encrypted=true",
+			"_type": "request"
+		},
+		{
+			"_id": "req_701f4902184a4e78809f1ca0eafb3823",
+			"authentication": {},
+			"body": {},
+			"created": 1547996612591,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1513516038609,
+			"method": "DELETE",
+			"modified": 1548001710918,
+			"name": "delete user 1",
+			"parameters": [],
+			"parentId": "wrk_339d2c6694cf4db498d090ec5aecfb24",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:9080/sample-rest/api/users/1",
+			"_type": "request"
+		},
+		{
+			"_id": "req_a6adc1e204ce4dac81b12f2364144bab",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"firstName\" : \"Walter\",\n\t\"lastName\" : \"Smith\"\n}"
+			},
+			"created": 1548001748043,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_b460de590c3e4fafba5d561a9a293b24",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1547503041817,
+			"method": "POST",
+			"modified": 1548001825397,
+			"name": "add user (names only)",
+			"parameters": [],
+			"parentId": "wrk_339d2c6694cf4db498d090ec5aecfb24",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:9080/sample-rest/api/users",
+			"_type": "request"
+		},
+		{
+			"_id": "req_6b278a79209e486aa9ebf35336c6be7d",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"firstName\" : \"A12345678901234567890123456789012345678901234567890\",\n\t\"lastName\" : \"BCDEF\",\n\t\"email\" : \"XXX@YYY.com\",\n\t\"age\" : 500\t\n}"
+			},
+			"created": 1547918439575,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_b460de590c3e4fafba5d561a9a293b24",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1547873134538.75,
+			"method": "POST",
+			"modified": 1548007937944,
+			"name": "add user (Invalid values)",
+			"parameters": [],
+			"parentId": "fld_4dbd4b714f7e402aaf897feb57ecb0c2",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:9080/sample-rest/api/users",
+			"_type": "request"
+		},
+		{
+			"_id": "req_5b6c0e6ad5084bd8a024a7f050880087",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"firstName\" : \"ABC\",\n\t\"lastName\" : \"DEF\",\n\t\"email\" : \"XXX@YYY.com,\n\t\"age\" : 500\t\n}"
+			},
+			"created": 1547918445458,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_b460de590c3e4fafba5d561a9a293b24",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1547873134388.75,
+			"method": "POST",
+			"modified": 1547996531358,
+			"name": "add user (invalid json)",
+			"parameters": [],
+			"parentId": "fld_4dbd4b714f7e402aaf897feb57ecb0c2",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:9080/sample-rest/api/users",
+			"_type": "request"
+		},
+		{
+			"_id": "req_b38850c20c9a46c1be3d028847464ee9",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"firstName\" : \"ABCDEFG <script>alert('bad')</script>\",\n\t\"lastName\" : \"HIJ\",\n\t\"email\" : \"XXX@YYY.com\",\n\t\"age\" : 21\n}"
+			},
+			"created": 1547940809015,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_b460de590c3e4fafba5d561a9a293b24",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1547873134488.75,
+			"method": "POST",
+			"modified": 1547996505859,
+			"name": "add user (script)",
+			"parameters": [],
+			"parentId": "fld_4dbd4b714f7e402aaf897feb57ecb0c2",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:9080/sample-rest/api/users",
+			"_type": "request"
+		},
+		{
+			"_id": "req_d3a257b697fa44f18a33a83fa69cc139",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n}"
+			},
+			"created": 1547944765302,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_b460de590c3e4fafba5d561a9a293b24",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1547873134438.75,
+			"method": "POST",
+			"modified": 1547996499640,
+			"name": "add user (null)",
+			"parameters": [],
+			"parentId": "fld_4dbd4b714f7e402aaf897feb57ecb0c2",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:9080/sample-rest/api/users",
+			"_type": "request"
+		},
+		{
+			"_id": "req_44fb8b5a2fff40008ce7aaca614bc3aa",
+			"authentication": {},
+			"body": {},
+			"created": 1547979369972,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1547873134588.75,
+			"method": "GET",
+			"modified": 1548010091150,
+			"name": "user not found",
+			"parameters": [],
+			"parentId": "fld_4dbd4b714f7e402aaf897feb57ecb0c2",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:9080/sample-rest/api/users/10000",
+			"_type": "request"
+		}
+	]
+}
